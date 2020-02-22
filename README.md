@@ -1,6 +1,6 @@
-# create-express-api
+# create-express-app
 
-A CLI to automatically clone the [Express API Starter](https://github.com/w3cj/express-api-starter).
+A CLI to automatically clone the [Express API Starter](https://github.com/Omerfrq/Node-Starter).
 
 ## Installation
 
@@ -19,4 +19,4 @@ create-express-api name-of-app
 npx create-express-api name-of-app
 ```
 
-This will create a directory with the given name, clone the [express API starter](https://github.com/w3cj/express-api-starter) repo into it, and install dependencies.
+This will create a directory with the given name, clone the [express API starter](https://github.com/Omerfrq/Node-Starter) repo into it, and install dependencies.
