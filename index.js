@@ -6,21 +6,23 @@ const name = process.argv[2];
 if (!name || name.match(/[<>:"\/\\|?*\x00-\x1F]/)) {
   return console.log(`
   Invalid directory name.
-  Usage: create-express-api name-of-api  
+  Usage: generate-express-app name-of-api  
 `);
 }
 
-const repoURL = 'https://github.com/w3cj/express-api-starter.git';
+const repoURL = 'https://github.com/Omerfrq/Node-Starter.git';
 
 runCommand('git', ['clone', repoURL, name])
   .then(() => {
     return runCommand('rm', ['-rf', `${name}/.git`]);
-  }).then(() => {
+  })
+  .then(() => {
     console.log('Installing dependencies...');
     return runCommand('npm', ['install'], {
       cwd: process.cwd() + '/' + name
     });
-  }).then(() => {
+  })
+  .then(() => {
     console.log('Done! 🏁');
     console.log('');
     console.log('To get started:');
@@ -31,15 +33,15 @@ runCommand('git', ['clone', repoURL, name])
 function runCommand(command, args, options = undefined) {
   const spawned = spawn(command, args, options);
 
-  return new Promise((resolve) => {
-    spawned.stdout.on('data', (data) => {
+  return new Promise(resolve => {
+    spawned.stdout.on('data', data => {
       console.log(data.toString());
     });
-    
-    spawned.stderr.on('data', (data) => {
+
+    spawned.stderr.on('data', data => {
       console.error(data.toString());
     });
-    
+
     spawned.on('close', () => {
       resolve();
     });

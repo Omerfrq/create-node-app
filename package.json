@@ -1,10 +1,19 @@
 {
-  "name": "create-express-api",
+  "name": "generate-express-app",
   "version": "1.0.0",
   "bin": {
-    "create-express-api": "index.js"
+    "generate-express-app": "index.js"
   },
   "description": "A CLI to automatically clone the Express API Starter",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Omerfrq/create-node-app.git"
+  },
+  "author": "Omer Farooq",
+  "bugs": {
+    "url": "https://github.com/Omerfrq/create-node-app/issues"
+  },
+  "homepage": "https://github.com/Omerfrq/create-node-app#readme"
 }
