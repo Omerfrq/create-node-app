@@ -12,6 +12,12 @@
     "url": "git+https://github.com/Omerfrq/create-node-app.git"
   },
   "author": "Omer Farooq",
+  "keywords": [
+    "express",
+    "starter",
+    "generator",
+    "scaffold"
+  ],
   "bugs": {
     "url": "https://github.com/Omerfrq/create-node-app/issues"
   },
