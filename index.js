@@ -1,6 +1,5 @@
 #! /usr/bin/env node
-
-const { spawn } = require('child_process');
+var spawn = require("cross-spawn");
 
 const name = process.argv[2];
 if (!name || name.match(/[<>:"\/\\|?*\x00-\x1F]/)) {
@@ -10,39 +9,39 @@ if (!name || name.match(/[<>:"\/\\|?*\x00-\x1F]/)) {
 `);
 }
 
-const repoURL = 'https://github.com/Omerfrq/Node-Starter.git';
+const repoURL = "https://github.com/Omerfrq/Node-Starter.git";
 
-runCommand('git', ['clone', repoURL, name])
+runCommand("git", ["clone", repoURL, name])
   .then(() => {
-    return runCommand('rm', ['-rf', `${name}/.git`]);
+    return runCommand("rm", ["-rf", `${name}/.git`]);
   })
   .then(() => {
-    console.log('Installing dependencies...');
-    return runCommand('npm', ['install'], {
-      cwd: process.cwd() + '/' + name
+    console.log("Installing dependencies...");
+    return runCommand("npm", ["i"], {
+      cwd: process.cwd() + "/" + name,
     });
   })
   .then(() => {
-    console.log('Done! 🏁');
-    console.log('');
-    console.log('To get started:');
-    console.log('cd', name);
-    console.log('npm run dev');
+    console.log("Done! 🏁");
+    console.log("");
+    console.log("To get started:");
+    console.log("cd", name);
+    console.log("npm run dev");
   });
 
 function runCommand(command, args, options = undefined) {
   const spawned = spawn(command, args, options);
 
-  return new Promise(resolve => {
-    spawned.stdout.on('data', data => {
+  return new Promise((resolve) => {
+    spawned.stdout.on("data", (data) => {
       console.log(data.toString());
     });
 
-    spawned.stderr.on('data', data => {
+    spawned.stderr.on("data", (data) => {
       console.error(data.toString());
     });
 
-    spawned.on('close', () => {
+    spawned.on("close", () => {
       resolve();
     });
   });
